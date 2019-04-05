@@ -1,0 +1,52 @@
+{
+  "project_info": {
+    "project_number": "272239222801",
+    "firebase_url": "https://wallet-3bc9f.firebaseio.com",
+    "project_id": "wallet-3bc9f",
+    "storage_bucket": "wallet-3bc9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272239222801:android:41f41ed4bea3df80",
+        "android_client_info": {
+          "package_name": "com.udacity.wallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272239222801-bl4fvf67nmp17t1pk5ud4o9s7e4qkm2m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udacity.wallet",
+            "certificate_hash": "39260f4119bae6eb063feac63c9d3554b032ebf8"
+          }
+        },
+        {
+          "client_id": "272239222801-sb2i6orb09n4v2amckmufnvgm6fcedvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udacity.wallet",
+            "certificate_hash": "611d10ad933b1cffe73436c2d7c78731c568d4d4"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxNVKsPpLXrZUJGLoqQH8ymawnKJgDUz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272239222801-fb1el5habd75vsunktu1p1gcc0oq16fs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

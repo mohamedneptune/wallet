@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dashboard_expense.HomeFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="80dp">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    tools:layout_editor_absoluteY="81dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/activity_horizontal_small_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/expense_current_day_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/expense_current_day"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/expense_current_day_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            tools:text="@string/defaultexpense_day" />
+                    </LinearLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/cardview_day"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    tools:layout_editor_absoluteY="81dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/activity_horizontal_small_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/expense_current_month_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/expense_current_month"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/expense_current_month_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            tools:text="2000" />
+                    </LinearLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+
+                <RelativeLayout
+                    android:id="@+id/graph_expense_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_below="@+id/cardview_month"
+                    android:layout_marginTop="20dp">
+
+                    <com.udacity.wallet.ui.common.CustomProgressBar
+                        android:id="@+id/custom_progress_bar_full"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="300dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="-10dp"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="75"
+                        android:progressDrawable="@drawable/progress_circle_full" />
+
+                    <com.udacity.wallet.ui.common.CustomProgressBar
+                        android:id="@+id/custom_progress_bar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="300dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="-10dp"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="10"
+                        android:progressDrawable="@drawable/progress_circle" />
+
+                    <LinearLayout
+                        android:id="@+id/expense_percent_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/points_value_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="38sp"
+                            tools:text="34" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/points_value_text_view"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/percent"
+                            android:textColor="@color/black"
+                            android:textSize="35sp" />
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/graph_expense_layout"
+                    android:textSize="@dimen/default_title_size"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/expenses_vs_budget_of_the_current_month"/>
+            </RelativeLayout>
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:clickable="true"
+                android:src="@drawable/ic_add_white_24dp" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</layout>

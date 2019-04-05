@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#09C"
+    android:padding="@dimen/widget_margin"
+    android:orientation="horizontal"
+    android:id="@+id/root_layout">
+
+    <TextView
+        android:id="@+id/expense_current_month_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#09C"
+        android:contentDescription="@string/expense_current_month"
+        android:text="@string/expense_current_month"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/expense_current_month_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@color/blue2"
+        tools:text="@string/default_value"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>
