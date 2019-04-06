@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.list_expense;
+package com.udacity.wallet.ui.listexpense;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -24,10 +24,8 @@ import java.util.List;
 
 public class DataFragment extends Fragment {
 
-    private DataViewModel mViewModel;
     private DataFragmentBinding mBinding;
     private SharedPreferences.Editor mEditorPreference;
-    private ArrayList<String> mCategories;
     private Context mContext;
 
     public static DataFragment newInstance() {
@@ -46,12 +44,12 @@ public class DataFragment extends Fragment {
         mEditorPreference = sharedPreferences.edit();
 
         //Category Spinner
-        mCategories = new ArrayList<>();
+        ArrayList<String> categories = new ArrayList<>();
         for (Enum category : Constants.CategoryEnum.values()) {
-            mCategories.add(category.toString());
+            categories.add(category.toString());
         }
 
-        setRecyclerAdapter(mCategories);
+        setRecyclerAdapter(categories);
 
         mBinding.recyclerCategories.addOnItemTouchListener(new RecyclerTouchListner(getActivity(), mBinding.recyclerCategories, new ClickListner(){
             @Override
@@ -76,8 +74,6 @@ public class DataFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(DataViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 

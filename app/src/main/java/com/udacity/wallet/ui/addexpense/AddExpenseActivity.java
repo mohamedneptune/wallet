@@ -1,9 +1,7 @@
-package com.udacity.wallet.ui.add_expense;
+package com.udacity.wallet.ui.addexpense;
 
 import android.app.DatePickerDialog;
-import android.appwidget.AppWidgetManager;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.ComponentName;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,10 +18,9 @@ import android.widget.Spinner;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.udacity.wallet.R;
-import com.udacity.wallet.databinding.ActivityExpenceBinding;
+import com.udacity.wallet.databinding.ActivityExpenseBinding;
 import com.udacity.wallet.shared.Constants;
 import com.udacity.wallet.shared.Globals;
-import com.udacity.wallet.ui.ExpenseAppWidget;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,13 +28,12 @@ import java.util.Date;
 
 public class AddExpenseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
-    private ActivityExpenceBinding mBinding;
+    private ActivityExpenseBinding mBinding;
     private Boolean mSwitchEachMonth = false;
     private Boolean mSwitchEachYear = false;
     private Date mDate;
     private ArrayList<String> mListCategory;
     private String mCategory;
-    private int mYear, mMonth, mDay;
     private String mDateString;
     private FirebaseAnalytics mFirebaseAnalytics;
     private Bundle mParams;
@@ -47,8 +43,8 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_expence);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_expence);
+        //setContentView(R.layout.activity_expense);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_expense);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -181,9 +177,9 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
 
             // Get Current Date
             final Calendar c = Calendar.getInstance();
-            mYear = c.get(Calendar.YEAR);
-            mMonth = c.get(Calendar.MONTH);
-            mDay = c.get(Calendar.DAY_OF_MONTH);
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
 
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(this,
@@ -200,7 +196,7 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
                             mBinding.contentExpenseLayout.dateTextview.setText(mDateString);
 
                         }
-                    }, mYear, mMonth, mDay);
+                    }, year, month, day);
             datePickerDialog.show();
         }
     }

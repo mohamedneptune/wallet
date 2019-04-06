@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.statistic_expense;
+package com.udacity.wallet.ui.statistic;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

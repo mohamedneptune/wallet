@@ -7,7 +7,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.udacity.wallet.ui.list_expense.DataFragment;
+import com.udacity.wallet.ui.listexpense.DataFragment;
 
 
 public class RecyclerTouchListner implements RecyclerView.OnItemTouchListener{

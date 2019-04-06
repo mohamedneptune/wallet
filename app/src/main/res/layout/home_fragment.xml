@@ -6,7 +6,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dashboard_expense.HomeFragment">
+        tools:context=".ui.dashboard.HomeFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -134,7 +134,6 @@
                             android:id="@+id/points_value_text_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
                             android:gravity="center"
                             android:textColor="@color/black"
                             android:textSize="38sp"
@@ -174,7 +173,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:clickable="true"
-                android:src="@drawable/ic_add_white_24dp" />
+                android:src="@drawable/ic_add_white_24dp"
+                android:focusable="true" />
         </RelativeLayout>
     </FrameLayout>
 

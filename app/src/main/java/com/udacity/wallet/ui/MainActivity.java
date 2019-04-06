@@ -13,10 +13,10 @@ import android.view.MenuItem;
 
 import com.udacity.wallet.R;
 import com.udacity.wallet.shared.Globals;
-import com.udacity.wallet.ui.dashboard_expense.HomeFragment;
-import com.udacity.wallet.ui.list_expense.DataFragment;
+import com.udacity.wallet.ui.dashboard.HomeFragment;
+import com.udacity.wallet.ui.listexpense.DataFragment;
 import com.udacity.wallet.ui.profile.ProfileFragment;
-import com.udacity.wallet.ui.statistic_expense.StatFragment;
+import com.udacity.wallet.ui.statistic.StatFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         Globals.setApplicationContext(this);

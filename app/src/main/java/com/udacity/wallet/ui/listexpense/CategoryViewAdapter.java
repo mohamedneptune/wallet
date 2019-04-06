@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.list_expense;
+package com.udacity.wallet.ui.listexpense;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -19,13 +19,11 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
 
     private LayoutInflater mInflater;
     private List<String> mCategories;
-    private Context mContext;
 
     // data is passed into the constructor
     CategoryViewAdapter(Context context, List<String> categories) {
         this.mInflater = LayoutInflater.from(context);
         this.mCategories = categories;
-        mContext = context;
     }
 
     // stores and recycles views as they are scrolled off screen
@@ -34,7 +32,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
 
         ViewHolder(View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.category_title);
+            textView = itemView.findViewById(R.id.category_title);
         }
     }
 

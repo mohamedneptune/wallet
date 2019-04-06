@@ -24,7 +24,7 @@
     <!-- LOGIN ACTIVITY -->
     <string name="toolbar_title_login_activity">Your profile</string>
     <string name="text_input_username">User name</string>
-    <string name="text_view_email">E-mail adress :</string>
+    <string name="text_view_email">E-mail address :</string>
     <string name="button_sign_out_account">Sign Out</string>
     <string name="info_no_email_found">No email address</string>
     <string name="info_no_username_found">No username</string>
@@ -49,5 +49,9 @@
     <string name="defaultexpense_day">200</string>
     <string name="title">Title</string>
     <string name="year">2019</string>
+    <string name="select_date">select date</string>
+    <string name="profile_image">profile image</string>
+    <string name="selected">Selected:</string>
+    <string name="cost">Cost</string>
 
 </resources>

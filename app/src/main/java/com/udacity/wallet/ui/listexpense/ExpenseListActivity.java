@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.list_expense;
+package com.udacity.wallet.ui.listexpense;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -29,7 +29,6 @@ public class ExpenseListActivity extends AppCompatActivity implements ExpenseVie
 
     private List<ExpenseModel> mExpenseModelList = new LinkedList<>();
     private String mCurrentCategory;
-    private SharedPreferences sharedPreferences;
     private ActivityExpenseListBinding mBinding;
     private DataViewModel mDataViewModel;
 
@@ -49,7 +48,7 @@ public class ExpenseListActivity extends AppCompatActivity implements ExpenseVie
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         mCurrentCategory = sharedPreferences.getString("category_selected_name", "");
 
@@ -70,7 +69,7 @@ public class ExpenseListActivity extends AppCompatActivity implements ExpenseVie
             @Override
             public void onChanged(@Nullable List<ExpenseEntry> expenseEntries) {
 
-                if (null != expenseEntries) {
+                if (expenseEntries != null) {
                     Timber.i("nbr expenseEntry : " + expenseEntries.size());
                     //ModelMapper
                     ExpenseMapper expenseMapper = new ExpenseMapper();

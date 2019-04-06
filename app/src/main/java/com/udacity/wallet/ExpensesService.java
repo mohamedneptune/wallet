@@ -30,9 +30,7 @@ public class ExpensesService extends IntentService {
         context.startService(intent);
     }
 
-    /**
-     * @param intent
-     */
+
 
     @Override
     protected void onHandleIntent(Intent intent) {

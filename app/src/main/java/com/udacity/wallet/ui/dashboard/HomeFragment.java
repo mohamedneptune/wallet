@@ -1,8 +1,7 @@
-package com.udacity.wallet.ui.dashboard_expense;
+package com.udacity.wallet.ui.dashboard;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
@@ -18,7 +17,7 @@ import android.view.ViewGroup;
 import com.udacity.wallet.ExpensesService;
 import com.udacity.wallet.R;
 import com.udacity.wallet.databinding.HomeFragmentBinding;
-import com.udacity.wallet.ui.add_expense.AddExpenseActivity;
+import com.udacity.wallet.ui.addexpense.AddExpenseActivity;
 
 import timber.log.Timber;
 
@@ -28,7 +27,6 @@ public class HomeFragment extends Fragment {
     private HomeFragmentBinding mBinding;
 
     private int mBudgetValue = 0;
-    private SharedPreferences.Editor mEditorPreference;
     private SharedPreferences mSharedPreferences;
 
     public static HomeFragment newInstance() {
@@ -42,7 +40,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         mBinding = DataBindingUtil.bind(view);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.floatingActionButton);
+        FloatingActionButton fab = view.findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,9 +54,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        mSharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        mEditorPreference = mSharedPreferences.edit();
 
         mViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
     }
@@ -91,9 +86,6 @@ public class HomeFragment extends Fragment {
                 int progress = (int) ((expenseCostCurrentMonth / mBudgetValue) * 100);
                 mBinding.customProgressBar.setProgress(progressForGraph);
                 mBinding.pointsValueTextView.setText("" + progress);
-                float expenseMonth = expenseCostCurrentMonth.floatValue();
-                mEditorPreference.putFloat("expense_cost_current_month", expenseMonth);
-                mEditorPreference.apply();
                 //updateWidget;
                 ExpensesService.startActionUpdateExpensesWidgets(getContext());
             }

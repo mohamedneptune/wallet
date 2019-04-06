@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.statistic_expense;
+package com.udacity.wallet.ui.statistic;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -28,7 +28,6 @@ public class StatFragment extends Fragment {
 
     private StatViewModel mViewModel;
     private StatFragmentBinding mBinding;
-    private PieChartData data;
     private boolean hasLabels = false;
     private boolean hasLabelsOutside = false;
     private boolean hasCenterCircle = false;
@@ -104,7 +103,7 @@ public class StatFragment extends Fragment {
             values.add(sliceValue);
         }
 
-        data = new PieChartData(values);
+        PieChartData data = new PieChartData(values);
         data.setHasLabels(hasLabels);
         data.setHasLabelsOnlyForSelected(hasLabelForSelected);
         data.setHasLabelsOutside(hasLabelsOutside);
@@ -117,7 +116,7 @@ public class StatFragment extends Fragment {
 
         @Override
         public void onValueSelected(int arcIndex, SliceValue value) {
-            Toast.makeText(getActivity(), "Selected: " + value, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.selected) + value, Toast.LENGTH_SHORT).show();
         }
         @Override
         public void onValueDeselected() {

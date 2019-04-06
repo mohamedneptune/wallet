@@ -7,7 +7,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.add_expense.AddExpenseActivity">
+        tools:context=".ui.addexpense.AddExpenseActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
 
         <include
             android:id="@+id/content_expense_layout"
-            layout="@layout/content_expence" />
+            layout="@layout/content_expense" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

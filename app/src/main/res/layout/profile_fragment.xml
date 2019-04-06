@@ -28,7 +28,8 @@
                     android:id="@+id/profile_activity_imageview_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/ic_anon_user_48dp" />
+                    app:srcCompat="@drawable/ic_anon_user_48dp"
+                    android:contentDescription="@string/profile_image"/>
 
             </LinearLayout>
 
@@ -72,7 +73,7 @@
                     android:id="@+id/profile_activity_text_view_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
                     android:textSize="@dimen/default_text_size" />
 
             </LinearLayout>

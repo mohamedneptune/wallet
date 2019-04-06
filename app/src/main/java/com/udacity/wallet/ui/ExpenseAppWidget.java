@@ -10,8 +10,6 @@ import android.widget.RemoteViews;
 import com.udacity.wallet.ExpensesService;
 import com.udacity.wallet.R;
 
-import timber.log.Timber;
-
 /**
  * Implementation of App Widget functionality.
  */

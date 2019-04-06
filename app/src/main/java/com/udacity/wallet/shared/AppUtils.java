@@ -18,8 +18,7 @@ public class AppUtils {
 
 
     public static Date getCurrentDateTime(){
-        Date currentDate =  Calendar.getInstance().getTime();
-        return currentDate;
+        return Calendar.getInstance().getTime();
     }
 
     public static String getFormattedDateString(Date date) {

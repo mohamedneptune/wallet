@@ -5,7 +5,7 @@
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.list_expense.DataFragment"
+    tools:context=".ui.listexpense.DataFragment"
     android:layout_marginTop="70dp">
 
     <android.support.v7.widget.RecyclerView

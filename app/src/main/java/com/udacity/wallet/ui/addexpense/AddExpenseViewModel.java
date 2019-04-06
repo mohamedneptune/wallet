@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.add_expense;
+package com.udacity.wallet.ui.addexpense;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

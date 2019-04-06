@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.list_expense;
+package com.udacity.wallet.ui.listexpense;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -19,14 +19,11 @@ public class ExpenseViewAdapter extends RecyclerView.Adapter<ExpenseViewAdapter.
     private LayoutInflater mInflater;
     private List<ExpenseModel> mExpenseModelList;
     private ItemClickListener mClickListener;
-    private Context mContext;
-    private String dateString;
 
     // data is passed into the constructor
     ExpenseViewAdapter(Context context, List<ExpenseModel> expenseModelList) {
         this.mInflater = LayoutInflater.from(context);
         this.mExpenseModelList = expenseModelList;
-        mContext = context;
     }
 
     // stores and recycles views as they are scrolled off screen
@@ -36,9 +33,9 @@ public class ExpenseViewAdapter extends RecyclerView.Adapter<ExpenseViewAdapter.
 
         ViewHolder(View itemView) {
             super(itemView);
-            expense_title = (TextView) itemView.findViewById(R.id.expense_title);
-            expense_cost = (TextView) itemView.findViewById(R.id.expense_cost);
-            expense_date = (TextView) itemView.findViewById(R.id.expense_date);
+            expense_title = itemView.findViewById(R.id.expense_title);
+            expense_cost = itemView.findViewById(R.id.expense_cost);
+            expense_date = itemView.findViewById(R.id.expense_date);
         }
 
         @Override
@@ -61,7 +58,7 @@ public class ExpenseViewAdapter extends RecyclerView.Adapter<ExpenseViewAdapter.
 
         holder.expense_title.setText(mExpenseModelList.get(position).getTitle());
         holder.expense_cost.setText(mExpenseModelList.get(position).getCost().toString());
-        dateString = mExpenseModelList.get(position).getExpenseDate().getDate() + " "
+        String dateString = mExpenseModelList.get(position).getExpenseDate().getDate() + " "
                 + Globals.getMonth(mExpenseModelList.get(position).getExpenseDate().getMonth() + 1) + " "
                 + (mExpenseModelList.get(position).getExpenseDate().getYear() + 1900);
         holder.expense_date.setText(dateString);

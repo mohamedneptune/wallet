@@ -1,4 +1,4 @@
-package com.udacity.wallet.ui.dashboard_expense;
+package com.udacity.wallet.ui.dashboard;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
