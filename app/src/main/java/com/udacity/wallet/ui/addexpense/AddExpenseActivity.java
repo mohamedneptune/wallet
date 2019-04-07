@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,11 +18,14 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.udacity.wallet.R;
 import com.udacity.wallet.databinding.ActivityExpenseBinding;
 import com.udacity.wallet.shared.Constants;
 import com.udacity.wallet.shared.Globals;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +42,7 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
     private FirebaseAnalytics mFirebaseAnalytics;
     private Bundle mParams;
     private AddExpenseViewModel mAddExpenseViewModel;
+    private Bundle mSavedInstanceState;
 
 
     @Override
@@ -47,6 +52,8 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_expense);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mSavedInstanceState = savedInstanceState;
 
         mAddExpenseViewModel = ViewModelProviders.of(this).get(AddExpenseViewModel.class);
 
@@ -115,16 +122,23 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
         mBinding.contentExpenseLayout.dateImageview.setOnClickListener(this);
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("date_string", mDateString);
+        outState.putSerializable("date", mDate);
+    }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        setupViewModel();
-    }
 
-    private void setupViewModel() {
-        // Observe the LiveData object in the ViewModel
-        //Observe Expenses Of Current Day
+        if (mSavedInstanceState != null) {
+            mDate = (Date) mSavedInstanceState.getSerializable("date");
+            mDateString = mSavedInstanceState.getString("date_string", "");
+            mBinding.contentExpenseLayout.dateTextview.setText(mDateString);
+        }
     }
 
 
